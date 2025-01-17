@@ -1,0 +1,54 @@
+{
+  "name": "vite-react-ssr-starter",
+  "version": "1.0.0",
+  "description": "a react vite ssr starter",
+  "type": "module",
+  "scripts": {
+    "dev": "dotenv -e .env -e .env.development -- node ./src/server/main.js",
+    "prod": "pnpm build && dotenv -e .env -e .env.production -- node ./src/server/main.js",
+    "build:client": "tsc -b && vite build --ssrManifest .vite/ssr-manifest.json --outDir dist/client",
+    "build:server": "tsc -b && vite build --outDir dist/server --ssr src/entry-server.tsx",
+    "build": "rimraf dist && pnpm run build:client && pnpm run build:server",
+    "format": "prettier --write src"
+  },
+  "keywords": ["vite","react19","ssr"],
+  "author": "niubomian",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/niubomian/vite-react-ssr-starter"
+  },
+  "dependencies": {
+    "compression": "^1.7.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "path": "^0.12.7",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.1.1",
+    "serve-static": "^1.16.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.18.0",
+    "@types/compression": "^1.7.5",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.6",
+    "@types/react": "^19.0.7",
+    "@types/react-dom": "^19.0.3",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/serve-static": "^1.15.7",
+    "@unhead/addons": "^1.11.18",
+    "@vitejs/plugin-react-swc": "^3.7.2",
+    "copyfiles": "^2.4.1",
+    "dotenv-cli": "^8.0.0",
+    "eslint": "^9.18.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.18",
+    "globals": "^15.14.0",
+    "prettier": "^3.4.2",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.20.0",
+    "vite": "^6.0.7"
+  }
+}
